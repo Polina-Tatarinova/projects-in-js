@@ -1,0 +1,485 @@
+/* ===== ОСНОВНОЙ ФОН ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c1810;
+    background-image: 
+        radial-gradient(ellipse at center, #3d2415 0%, #1a0e08 100%);
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+}
+
+/* ===== КОНТЕЙНЕР КАЛЬКУЛЯТОРА ===== */
+.steampunk-calculator {
+    position: relative;
+    padding: 30px;
+}
+
+/* ===== ДЕКОРАТИВНЫЕ ШЕСТЕРЁНКИ ===== */
+.gear {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #8b7355;
+    background: radial-gradient(circle at 30% 30%, #c4a882, #6b5540);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: gearSpin 20s linear infinite;
+}
+
+.gear::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background: #4a3728;
+    border: 2px solid #6b5540;
+}
+
+.gear::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border: 2px dashed #8b7355;
+}
+
+.gear-1 {
+    width: 120px;
+    height: 120px;
+    top: -40px;
+    right: -40px;
+    animation-duration: 15s;
+}
+
+.gear-2 {
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
+    left: -30px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.gear-3 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: -50px;
+    animation-duration: 18s;
+}
+
+@keyframes gearSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== РАМКА КАЛЬКУЛЯТОРА ===== */
+.calculator-frame {
+    position: relative;
+    background: linear-gradient(145deg, #5c3d2e, #3d2415);
+    padding: 25px 30px 30px;
+    border-radius: 25px;
+    border: 6px solid #8b7355;
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.8),
+        inset 0 2px 0 rgba(255,215,175,0.2),
+        inset 0 -2px 0 rgba(0,0,0,0.5),
+        0 0 40px rgba(139,115,85,0.2);
+    min-width: 340px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Внутренняя рамка с эффектом металла */
+.calculator-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 18px;
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,215,175,0.05), transparent 70%);
+}
+
+/* ===== ЗАКЛЁПКИ ===== */
+.rivet-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 12px;
+}
+
+.rivet-row.bottom {
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+.rivet {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #c4a882, #6b5540);
+    box-shadow: 
+        inset -2px -2px 4px rgba(0,0,0,0.6),
+        inset 2px 2px 4px rgba(255,215,175,0.3),
+        0 2px 4px rgba(0,0,0,0.3);
+    border: 1px solid #4a3728;
+}
+
+/* ===== ШИЛЬДИК ===== */
+.brand-plate {
+    text-align: center;
+    margin: 8px 0 18px;
+    padding: 6px 20px;
+    background: linear-gradient(180deg, #6b5540, #4a3728);
+    border-radius: 4px;
+    border: 2px solid #8b7355;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.brand-plate::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 2px;
+    border: 1px solid rgba(139, 115, 85, 0.3);
+}
+
+.brand-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d4c4a8;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    font-family: 'Courier New', monospace;
+}
+
+/* ===== ДИСПЛЕЙ ===== */
+.display-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.display-bezel {
+    background: linear-gradient(145deg, #4a3728, #2c1f14);
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 3px solid #6b5540;
+    box-shadow: 
+        inset 0 4px 12px rgba(0,0,0,0.6),
+        0 2px 8px rgba(0,0,0,0.3);
+}
+
+.display-glass {
+    background: linear-gradient(180deg, #1a2a1a, #0d1a0d);
+    padding: 16px 18px;
+    border-radius: 8px;
+    border: 2px solid #3a5a3a;
+    box-shadow: 
+        inset 0 0 30px rgba(0,255,100,0.05),
+        inset 0 0 60px rgba(0,255,100,0.02),
+        0 0 20px rgba(0,255,100,0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффект стекла */
+.display-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(100,255,150,0.05), transparent);
+    pointer-events: none;
+    border-radius: 6px 6px 0 0;
+}
+
+.display-glass::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(100,255,150,0.03), transparent 70%);
+    pointer-events: none;
+}
+
+.display {
+    font-size: 38px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: #4aff6a;
+    text-align: right;
+    min-height: 50px;
+    line-height: 1.2;
+    text-shadow: 
+        0 0 10px rgba(74, 255, 106, 0.3),
+        0 0 20px rgba(74, 255, 106, 0.1);
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Эффект свечения дисплея */
+.display-container::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 30px;
+    background: radial-gradient(ellipse, rgba(74, 255, 106, 0.08), transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.display-rivets {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-top: -8px;
+}
+
+.rivet-small {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #c4a882, #6b5540);
+    box-shadow: 
+        inset -1px -1px 2px rgba(0,0,0,0.5),
+        inset 1px 1px 2px rgba(255,215,175,0.2);
+    border: 1px solid #4a3728;
+}
+
+/* ===== СЕТКА КНОПОК ===== */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btn-spacer {
+    display: none;
+}
+
+/* ===== ОБЩИЙ СТИЛЬ КНОПОК ===== */
+.btn {
+    position: relative;
+    padding: 16px 8px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    user-select: none;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== КНОПКИ ЦИФР ===== */
+.btn.digit {
+    background: linear-gradient(180deg, #8b7355, #6b5540);
+    color: #f0e8d8;
+    box-shadow: 
+        0 4px 0 #4a3728,
+        0 6px 12px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,215,175,0.2);
+    border: 1px solid #5c4a38;
+}
+
+.btn.digit::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 7px;
+    background: linear-gradient(180deg, rgba(255,215,175,0.1), transparent);
+    pointer-events: none;
+}
+
+.btn.digit:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 #4a3728,
+        0 8px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,215,175,0.3);
+}
+
+.btn.digit:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0px 0 #4a3728,
+        0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn.digit.wide {
+    grid-column: span 1;
+}
+
+/* ===== КНОПКИ ОПЕРАТОРОВ ===== */
+.btn.operator {
+    background: linear-gradient(180deg, #5c4a38, #3d2f22);
+    color: #d4c4a8;
+    box-shadow: 
+        0 4px 0 #2c1f14,
+        0 6px 12px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,215,175,0.15);
+    border: 1px solid #4a3728;
+    font-size: 24px;
+}
+
+.btn.operator:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 #2c1f14,
+        0 8px 20px rgba(0,0,0,0.4);
+}
+
+.btn.operator:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0px 0 #2c1f14,
+        0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== КНОПКА ОЧИСТКИ ===== */
+.btn.clear {
+    background: linear-gradient(180deg, #7a4a3a, #5a3020);
+    color: #f0d8c8;
+    box-shadow: 
+        0 4px 0 #3d2018,
+        0 6px 12px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,180,150,0.2);
+    border: 1px solid #5a3020;
+}
+
+.btn.clear:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 #3d2018,
+        0 8px 20px rgba(0,0,0,0.4);
+}
+
+.btn.clear:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0px 0 #3d2018,
+        0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== КНОПКА РАВНО ===== */
+.btn.equals {
+    grid-column: span 4;
+    background: linear-gradient(180deg, #8a7a4a, #6a5a30);
+    color: #f0e8d0;
+    box-shadow: 
+        0 4px 0 #4a3d20,
+        0 6px 12px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,230,150,0.2);
+    border: 1px solid #5a4a28;
+    font-size: 28px;
+    min-height: 50px;
+    letter-spacing: 4px;
+}
+
+.btn.equals:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 0 #4a3d20,
+        0 8px 20px rgba(0,0,0,0.4);
+}
+
+.btn.equals:active {
+    transform: translateY(4px);
+    box-shadow: 
+        0 0px 0 #4a3d20,
+        0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== АНИМАЦИЯ НАЖАТИЯ ===== */
+.btn:active {
+    transition-duration: 0.02s;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 420px) {
+    .calculator-frame {
+        padding: 16px 18px 20px;
+        min-width: auto;
+    }
+    
+    .btn {
+        padding: 12px 6px;
+        font-size: 18px;
+        min-height: 50px;
+    }
+    
+    .display {
+        font-size: 28px;
+        min-height: 40px;
+    }
+    
+    .brand-text {
+        font-size: 12px;
+    }
+    
+    .gear {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .calculator-frame {
+        padding: 12px 12px 16px;
+    }
+    
+    .btn {
+        padding: 10px 4px;
+        font-size: 16px;
+        min-height: 42px;
+        border-radius: 8px;
+    }
+    
+    .display {
+        font-size: 22px;
+        min-height: 34px;
+    }
+    
+    .button-grid {
+        gap: 6px;
+    }
+    
+    .rivet {
+        width: 10px;
+        height: 10px;
+    }
+}

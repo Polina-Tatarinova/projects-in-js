@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Стим-панк калькулятор</title>
+    <link rel="stylesheet" href="./calculator.css" />
+    <script src="./calculator.js" defer></script>
+</head>
+<body>
+    <div class="steampunk-calculator">
+        <!-- декоративные шестерёнки -->
+        <div class="gear gear-1"></div>
+        <div class="gear gear-2"></div>
+        <div class="gear gear-3"></div>
+
+        <div class="calculator-frame">
+            <!-- верхние заклёпки -->
+            <div class="rivet-row">
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+            </div>
+
+            <!-- шильдик -->
+            <div class="brand-plate">
+                <span class="brand-text">⚙ ХРОНО-МАТ ⚙</span>
+            </div>
+
+            <!-- дисплей -->
+            <div class="display-container">
+                <div class="display-bezel">
+                    <div class="display-glass">
+                        <div class="display" id="display">0</div>
+                    </div>
+                </div>
+                <div class="display-rivets">
+                    <span class="rivet-small"></span>
+                    <span class="rivet-small"></span>
+                </div>
+            </div>
+
+            <!-- сетка кнопок -->
+            <div class="button-grid">
+                <!-- ряд 1: C, +/-, %, ÷ -->
+                <button class="btn function" data-value="C">C</button>
+                <button class="btn function" data-value="±">±</button>
+                <button class="btn function" data-value="%">%</button>
+                <button class="btn operator" data-value="/">÷</button>
+
+                <!-- ряд 2: 7 8 9 × -->
+                <button class="btn digit" data-value="7">7</button>
+                <button class="btn digit" data-value="8">8</button>
+                <button class="btn digit" data-value="9">9</button>
+                <button class="btn operator" data-value="*">×</button>
+
+                <!-- ряд 3: 4 5 6 - -->
+                <button class="btn digit" data-value="4">4</button>
+                <button class="btn digit" data-value="5">5</button>
+                <button class="btn digit" data-value="6">6</button>
+                <button class="btn operator" data-value="-">−</button>
+
+                <!-- ряд 4: 1 2 3 + -->
+                <button class="btn digit" data-value="1">1</button>
+                <button class="btn digit" data-value="2">2</button>
+                <button class="btn digit" data-value="3">3</button>
+                <button class="btn operator" data-value="+">+</button>
+
+                <!-- ряд 5: 0 (широкая), ., = -->
+                <button class="btn digit wide" data-value="0">0</button>
+                <button class="btn digit" data-value=".">.</button>
+                <button class="btn equals" data-value="=">=</button>
+            </div>
+
+            <!-- нижние заклёпки -->
+            <div class="rivet-row bottom">
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+                <span class="rivet"></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

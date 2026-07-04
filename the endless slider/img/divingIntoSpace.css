@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #0a1628;
+  background-image:
+    radial-gradient(circle at 20% 50%, #1a3a6a 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, #0d4b8a 0%, transparent 40%),
+    radial-gradient(circle at 40% 20%, #0044aa 0%, transparent 30%),
+    linear-gradient(180deg, #0a1628 0%, #05101f 100%);
+  background-blend-mode: overlay, screen, normal, normal;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 10% 20%, #0066ff22 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 80%, #0088ff33 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, #0044ff11 0%, transparent 70%);
+  z-index: 0;
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.shell {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 10px;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10px;
+  flex: 0 0 auto; /* ✅ Не сжимается */
+}
+
+/* ===== КОНТЕЙНЕР ДЛЯ КОПИЙ ===== */
+.copyContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100%;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+/* ===== КОПИЯ ГАЛЕРЕИ ===== */
+.copyContainer .shell {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: 100%;
+  overflow-x: auto;   /* ✅ Добавлено */
+  overflow-y: hidden;
+  padding: 0 10px;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ===== */
+.img {
+  flex: 0 0 auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.img:hover {
+  filter: brightness(1.15) drop-shadow(0 0 20px #0088ff66);
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.img:not(:last-child) {
+  border-right: 1px solid #1a4a8a55;
+  box-shadow: inset -1px 0 0 #0066ff22;
+}
+
+/* ===== КАРТОЧКА ===== */
+.template {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 100%;
+  max-height: 100vh;
+  
+  background: rgba(10, 20, 40, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1.5px solid rgba(100, 180, 255, 0.3);
+  box-shadow: 
+    0 0 40px rgba(0, 100, 255, 0.15),
+    inset 0 0 60px rgba(0, 100, 255, 0.05);
+  
+  padding: 40px 30px 55px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  
+  animation: cardFadeIn 0.5s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 180, 255, 0.3) transparent;
+}
+
+.template::-webkit-scrollbar {
+  width: 4px;
+}
+
+.template::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.template::-webkit-scrollbar-thumb {
+  background: rgba(100, 180, 255, 0.3);
+  border-radius: 10px;
+}
+
+.template::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 180, 255, 0.5);
+}
+
+.template .h1 {
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transform: skewX(-5deg);
+  
+  color: #b0e0ff;
+  text-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
+  
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  animation: textGlow 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.template .p {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-style: italic;
+  transform: skewX(-3deg);
+  
+  color: #c8d8e8;
+  text-shadow: 0 0 20px rgba(100, 200, 255, 0.15);
+  
+  margin: 0;
+  line-height: 1.7;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.template::after {
+  position: absolute;
+  bottom: 14px;
+  right: 22px;
+  
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(180, 220, 255, 0.7);
+  text-shadow: 0 0 12px rgba(0, 150, 255, 0.15);
+  letter-spacing: 1px;
+  transform: skewX(-8deg);
+  flex-shrink: 0;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
+  }
+  50% {
+    text-shadow: 
+      0 0 25px rgba(100, 200, 255, 0.9),
+      0 0 60px rgba(50, 150, 255, 0.5);
+  }
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.shell {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 10px;
+  height: 100vh;
+  overflow-x: auto;   /* 👈 ВАЖНО: чтобы скролл был */
+  overflow-y: hidden;
+  padding: 0 10px;
+  flex: 0 0 auto;
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.copyContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100%;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+/* ===== КОПИЯ ===== */
+.copyContainer .shell {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: 100%;
+  overflow-x: auto;   /* 👈 ВАЖНО: чтобы у копии был скролл */
+  overflow-y: hidden;
+  padding: 0 10px;
+}

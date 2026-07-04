@@ -1,0 +1,27 @@
+body{
+    background-color: antiquewhite;
+    margin-top: 10px;
+}
+
+.projectSlider {
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  background-color: aqua;
+  margin: 0 auto;
+}
+
+.hrefSlider{
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.textSlider{
+    text-align: center;
+    font-weight: 400;
+    text-decoration:underline
+}
