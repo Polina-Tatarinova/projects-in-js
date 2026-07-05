@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Музыкальный плеер</title>
+  <link rel="stylesheet" href="./musicPlayer.css">
+</head>
+<body>
+  <div class="player-card">
+    <!-- Обложка альбома (прежний размер) -->
+    <div class="cover-wrapper">
+      <img id="coverImage" class="cover-image" src="https://via.placeholder.com/400x400/1a1f2f/ffffff?text=🎵+PLAYLIST" alt="Обложка альбома">
+    </div>
+
+    <!-- Информация о треке -->
+    <div class="track-info">
+      <h2 id="trackTitle">Выберите трек</h2>
+      <p id="trackArtist">Из плейлиста</p>
+    </div>
+
+    <!-- Элементы управления -->
+    <div class="controls">
+      <button class="ctrl-btn" id="prevBtn" aria-label="Предыдущий">⏮</button>
+      <button class="ctrl-btn play-btn" id="playBtn" aria-label="Воспроизвести/Пауза">▶</button>
+      <button class="ctrl-btn" id="nextBtn" aria-label="Следующий">⏭</button>
+    </div>
+
+    <!-- Список плейлиста (компактный) -->
+    <div class="playlist">
+      <ul id="playlistContainer">
+        <li class="playlist-item">Загрузка...</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <script src="app.js"></script> -->
+</body>
+</html>
