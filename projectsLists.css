@@ -1,141 +1,177 @@
 body {
-    background-color: antiquewhite;
-    margin-top: 10px;
-    
+  background-color: antiquewhite;
+  margin-top: 10px;
 }
 
 /* Затемнение фона */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* затемнение 70% */
-    z-index: 9998;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* затемнение 70% */
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Блокируем прокрутку */
 body.no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Контент страницы (будет затемнён через overlay) */
 .content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.dateDiv {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.dateNow, .timeNow {
+    margin: 5px 0;
+    font-size: 18px;
 }
 
 .projectSlider {
-    border: 1px solid black;
-    width: 500px;
-    display: flex;
-    gap: 7px;
-    flex-direction: column;
-    background-color: aqua;
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  background-color: aqua;
 }
 
-.projectCalculator{
-    border: 1px solid black;
-    width: 500px;
-    display: flex;
-    gap: 7px;
-    flex-direction: column;
-    background-color: rgb(28, 0, 105);
-    color: white;
+.projectCalculator {
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  background-color: rgb(28, 0, 105);
+  color: white;
 }
 
+.projectRobocop {
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  background-color: rgb(6, 31, 2);
+  color: rgb(122, 240, 128);
+  text-decoration: none;
+}
+
+.hrefRobocop {
+  text-align: center;
+  color: rgb(122, 240, 128);
+  font-weight: 600;
+  text-decoration: none;
+}
 
 .hrefSlider {
-    text-align: center;
-    color: black;
-    font-weight: 600;
-    text-decoration: none;
+  text-align: center;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.hrefCalculator{
+.hrefCalculator {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.textRobocop{
     text-align: center;
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 .textSlider {
-    text-align: center;
-    font-weight: 400;
-    text-decoration: underline;
+  text-align: center;
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 .textCalculator {
-    text-align: center;
-    font-weight: 400;
-    text-decoration: underline;
+  text-align: center;
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 /* Стиль для контейнера приветствия */
 .greetingsUser {
-    position: relative;        /* меняем на relative, т.к. центрирует overlay */
-    background-color: #4CAF50;
-    color: white;
-    padding: 40px 60px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    z-index: 9999;             /* поверх overlay */
-    min-width: 300px;
-    animation: fadeIn 0.5s ease;
+  position: relative; /* меняем на relative, т.к. центрирует overlay */
+  background-color: #4caf50;
+  color: white;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 9999; /* поверх overlay */
+  min-width: 300px;
+  animation: fadeIn 0.5s ease;
 }
 
 /* Анимация появления */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Стиль для текста приветствия */
 .greetingsUser .hellow {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
-    color: white;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: white;
 }
 
 /* Стиль для кнопки */
 .greetingsUser .hellowBtn {
-    background-color: white;
-    color: #4CAF50;
-    border: none;
-    padding: 12px 32px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #4caf50;
+  border: none;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Эффект при наведении на кнопку */
 .greetingsUser .hellowBtn:hover {
-    background-color: #45a049;
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
+  background-color: #45a049;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
 }
 
 /* Эффект при нажатии на кнопку */
 .greetingsUser .hellowBtn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
+
