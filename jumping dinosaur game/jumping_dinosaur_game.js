@@ -83,4 +83,11 @@ function stopAllSounds() {
   });
 }
 
+// поменять фон
+const body = document.querySelector('body')
+const buttonFon = document.querySelector(".buttonFon");
+buttonFon.addEventListener("click", () => {
+  body.classList.toggle("buttonFonActive");
+});
+
 //реализация самой игры
