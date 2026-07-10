@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-image: url('./img/fon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Стили для кнопки */
+.button {
+  position: fixed;           /* Фиксированное позиционирование */
+  top: 30px;                 /* Отступ сверху */
+  right: 30px;               /* Отступ справа */
+  z-index: 1000;             /* Поверх всего */
+  
+  /* Внешний вид */
+  padding: 14px 28px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  
+  /* Прозрачный фон с эффектом стекла */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  
+  /* Тени и свечение */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* Текстовая тень для читаемости */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  
+  /* Защита от выделения */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Эффект при наведении */
+.button:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Эффект при нажатии */
+.button:active {
+  transform: translateY(0px) scale(0.95);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Активное состояние (звук выключен) */
+.button.active {
+  background: rgba(255, 80, 80, 0.25);
+  border-color: rgba(255, 80, 80, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(255, 80, 80, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Активное состояние при наведении */
+.button.active:hover {
+  background: rgba(255, 80, 80, 0.35);
+  border-color: rgba(255, 80, 80, 0.7);
+}
+
+/* Пульсация для активного состояния */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(255, 80, 80, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(255, 80, 80, 0.4);
+  }
+}
+
+/* Иконка перед текстом (через ::before) */
+.button::before {
+  content: "🔊 ";
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+/* Меняем иконку в активном состоянии */
+.button.active::before {
+  content: "🔇 ";
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .button {
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    top: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  
+  .button::before {
+    font-size: 14px;
+  }
+}
