@@ -159,3 +159,13 @@ body {
         height: 16px;
     }
 }
+
+.image-after {
+    width: 50%;           /* ← коробка стала меньше */
+    overflow: hidden;
+}
+
+.image-after img {
+    width: 500px;         /* ← ФИКСИРОВАННАЯ ширина (как у блока)! */
+    height: 500px;        /* ← ФИКСИРОВАННАЯ высота (как у блока)! */
+}
