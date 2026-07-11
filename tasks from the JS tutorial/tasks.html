@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>40 задач</title>
+  <link rel="stylesheet" href="./tasks.css">
+  <script src="./tasks.js" defer></script>
+</head>
+<body>
+  <div class="tasks-container">
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 1                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 1</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">
+          Напишите код, который выделит красным цветом все ячейки в таблице по диагонали.
+        </div>
+        <div class="task-text-normal">
+          Вам нужно получить из таблицы &lt;table&gt; все диагональные &lt;td&gt; и выделить их, используя код:
+        </div>
+        <pre>
+//  в переменной td находится DOM-элемент для тега &lt;td&gt;
+td.style.backgroundColor = 'red';</pre>
+        
+        <div class="table-wrapper">
+          <table id="diagonalTable">
+            
+              <tr><td>1:1</td><td>2:1</td><td>3:1</td><td>4:1</td><td>5:1</td></tr>
+            
+            
+              <tr><td>1:2</td><td>2:2</td><td>3:2</td><td>4:2</td><td>5:2</td></tr>
+              <tr><td>1:3</td><td>2:3</td><td>3:3</td><td>4:3</td><td>5:3</td></tr>
+              <tr><td>1:4</td><td>2:4</td><td>3:4</td><td>4:4</td><td>5:4</td></tr>
+              <tr><td>1:5</td><td>2:5</td><td>3:5</td><td>4:5</td><td>5:5</td></tr>
+            
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 2                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+  <div class="task-header">
+    <div class="task-title">Задача 2</div>
+  </div>
+  <div class="task-body">
+    <div class="task-text">
+      Вот документ с таблицей и формой. Как найти?…
+    </div>
+    <div class="task-text-normal">
+      <p>• Таблицу с id="age-table".</p>
+      <p>• Все элементы label внутри этой таблицы (их три).</p>
+      <p>• Первый td в этой таблице (со словом «Age»).</p>
+      <p>• Форму form с именем name="search".</p>
+      <p>• Первый input в этой форме.</p>
+      <p>• Последний input в этой форме.</p>
+    </div>
+
+    <!-- Таблица и форма для задания -->
+    <div class="table-wrapper">
+      <table id="age-table">
+        <tr>
+          <td id="age">Age</td>
+          <td>
+            <label  id="label">Имя: <input type="text" name="name"></label>
+          </td>
+        </tr>
+        <tr>
+          <td>Пол</td>
+          <td>
+            <label  id="label">Мужской <input type="radio" name="gender" value="male"></label>
+            <label  id="label">Женский <input type="radio" name="gender" value="female"></label>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <form name="search" style="margin: 15px 0;" id="search">
+      <label class="firstLabel">Поиск: <input type="text" name="query" id="firstInput"></label>
+      <input type="submit" value="Найти">
+      <input type="reset" value="Сбросить" id="lastInput">
+    </form>
+
+  </div>
+</div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 3                                                   -->
+    <!-- ========================================================= -->
+   <div class="task-card">
+  <div class="task-header">
+    <div class="task-title">Задача 3</div>
+  </div>
+  <div class="task-body">
+    <div class="task-text">
+      Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.
+    </div>
+    <div class="task-text-normal">
+      <p>Ссылка является внешней, если:</p>
+      <p>• Её href содержит ://</p>
+      <p>• Но не начинается с http://internal.com.</p>
+      
+      <a name="list">Список ссылок:</a>
+      <ul>
+        <li><a id='href' href="http://google.com">http://google.com</a></li>
+        <li><a id='href' href="/tutorial">/tutorial.html</a></li>
+        <li><a id='href' href="local/path">local/path</a></li>
+        <li><a id='href' href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+        <li><a id='href' href="http://nodejs.org">http://nodejs.org</a></li>
+        <li><a id='href' href="http://internal.com/test">http://internal.com/test</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <!-- ========================================================= -->
+<!-- ЗАДАЧА 4                                                   -->
+<!-- ========================================================= -->
+<div class="task-card">
+  <div class="task-header">
+    <div class="task-title">Задача 4</div>
+  </div>
+  <div class="task-body">
+    <div class="task-text">
+      Напишите функцию createTree, которая создаёт вложенный список ul/li из объекта.
+    </div>
+    <div class="task-text-normal">
+      <p>Пример данных:</p>
+      <pre style="background: #f5f5f5; border: 1px solid #000; padding: 10px; font-family: 'Courier New', monospace; margin: 5px 0 10px 0; overflow-x: auto;">
+let data = {
+  "Рыбы": {
+    "форель": {},
+    "лосось": {}
+  },
+  "Деревья": {
+    "Огромные": {
+      "секвойя": {},
+      "дуб": {}
+    },
+    "Цветковые": {
+      "яблоня": {},
+      "магнолия": {}
+    }
+  }
+};</pre>
+      
+      <p>Результат (дерево):</p>
+      <div id="container" style="margin: 10px 0; padding: 10px; border: 2px solid #000; background: #fafafa;"></div>
+    </div>
+  </div>
+</div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 5                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 5</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст пятой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 5</div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 6                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 6</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст шестой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 6</div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 7                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 7</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст седьмой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 7</div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 8                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 8</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст восьмой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 8</div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 9                                                   -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 9</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст девятой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 9</div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ЗАДАЧА 10                                                  -->
+    <!-- ========================================================= -->
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-title">Задача 10</div>
+      </div>
+      <div class="task-body">
+        <div class="task-text">Текст десятой задачи</div>
+        <div class="task-text-normal">Дополнительный текст задачи 10</div>
+      </div>
+    </div>
+
+    <!-- Задачи 11-40 (кратко для экономии места) -->
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 11</div></div><div class="task-body"><div class="task-text">Текст одиннадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 11</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 12</div></div><div class="task-body"><div class="task-text">Текст двенадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 12</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 13</div></div><div class="task-body"><div class="task-text">Текст тринадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 13</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 14</div></div><div class="task-body"><div class="task-text">Текст четырнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 14</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 15</div></div><div class="task-body"><div class="task-text">Текст пятнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 15</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 16</div></div><div class="task-body"><div class="task-text">Текст шестнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 16</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 17</div></div><div class="task-body"><div class="task-text">Текст семнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 17</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 18</div></div><div class="task-body"><div class="task-text">Текст восемнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 18</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 19</div></div><div class="task-body"><div class="task-text">Текст девятнадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 19</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 20</div></div><div class="task-body"><div class="task-text">Текст двадцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 20</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 21</div></div><div class="task-body"><div class="task-text">Текст двадцать первой задачи</div><div class="task-text-normal">Дополнительный текст задачи 21</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 22</div></div><div class="task-body"><div class="task-text">Текст двадцать второй задачи</div><div class="task-text-normal">Дополнительный текст задачи 22</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 23</div></div><div class="task-body"><div class="task-text">Текст двадцать третьей задачи</div><div class="task-text-normal">Дополнительный текст задачи 23</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 24</div></div><div class="task-body"><div class="task-text">Текст двадцать четвёртой задачи</div><div class="task-text-normal">Дополнительный текст задачи 24</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 25</div></div><div class="task-body"><div class="task-text">Текст двадцать пятой задачи</div><div class="task-text-normal">Дополнительный текст задачи 25</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 26</div></div><div class="task-body"><div class="task-text">Текст двадцать шестой задачи</div><div class="task-text-normal">Дополнительный текст задачи 26</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 27</div></div><div class="task-body"><div class="task-text">Текст двадцать седьмой задачи</div><div class="task-text-normal">Дополнительный текст задачи 27</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 28</div></div><div class="task-body"><div class="task-text">Текст двадцать восьмой задачи</div><div class="task-text-normal">Дополнительный текст задачи 28</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 29</div></div><div class="task-body"><div class="task-text">Текст двадцать девятой задачи</div><div class="task-text-normal">Дополнительный текст задачи 29</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 30</div></div><div class="task-body"><div class="task-text">Текст тридцатой задачи</div><div class="task-text-normal">Дополнительный текст задачи 30</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 31</div></div><div class="task-body"><div class="task-text">Текст тридцать первой задачи</div><div class="task-text-normal">Дополнительный текст задачи 31</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 32</div></div><div class="task-body"><div class="task-text">Текст тридцать второй задачи</div><div class="task-text-normal">Дополнительный текст задачи 32</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 33</div></div><div class="task-body"><div class="task-text">Текст тридцать третьей задачи</div><div class="task-text-normal">Дополнительный текст задачи 33</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 34</div></div><div class="task-body"><div class="task-text">Текст тридцать четвёртой задачи</div><div class="task-text-normal">Дополнительный текст задачи 34</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 35</div></div><div class="task-body"><div class="task-text">Текст тридцать пятой задачи</div><div class="task-text-normal">Дополнительный текст задачи 35</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 36</div></div><div class="task-body"><div class="task-text">Текст тридцать шестой задачи</div><div class="task-text-normal">Дополнительный текст задачи 36</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 37</div></div><div class="task-body"><div class="task-text">Текст тридцать седьмой задачи</div><div class="task-text-normal">Дополнительный текст задачи 37</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 38</div></div><div class="task-body"><div class="task-text">Текст тридцать восьмой задачи</div><div class="task-text-normal">Дополнительный текст задачи 38</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 39</div></div><div class="task-body"><div class="task-text">Текст тридцать девятой задачи</div><div class="task-text-normal">Дополнительный текст задачи 39</div></div></div>
+    <div class="task-card"><div class="task-header"><div class="task-title">Задача 40</div></div><div class="task-body"><div class="task-text">Текст сороковой задачи</div><div class="task-text-normal">Дополнительный текст задачи 40</div></div></div>
+
+  </div>
+
+
+</body>
+</html>

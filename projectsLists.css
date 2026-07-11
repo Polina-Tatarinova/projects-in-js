@@ -55,6 +55,15 @@ body.no-scroll {
   background-color: aqua;
 }
 
+.projectAfterImage {
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  background-color: rgb(0, 102, 255);
+}
+
 .projectJumpingDinosaurGame {
   border: 1px solid black;
   width: 500px;
@@ -85,8 +94,8 @@ body.no-scroll {
   text-decoration: none;
 }
 
-.projectTasksJS{
-   border: 1px solid black;
+.projectTasksJS {
+  border: 1px solid black;
   width: 500px;
   display: flex;
   gap: 7px;
@@ -96,7 +105,14 @@ body.no-scroll {
   text-decoration: none;
 }
 
-.hrefTasksJS{
+.hrefAfterImage{
+    text-align: center;
+  color: rgb(110, 6, 6);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hrefTasksJS {
   text-align: center;
   color: rgb(219, 240, 29);
   font-weight: 600;
@@ -131,8 +147,15 @@ body.no-scroll {
   text-decoration: none;
 }
 
-.textTasksJS{
-   text-align: center;
+.textAfterImage{
+    text-align: center;
+  font-weight: 400;
+  text-decoration: none;
+color: rgb(2, 1, 59);
+}
+
+.textTasksJS {
+  text-align: center;
   font-weight: 400;
   text-decoration: none;
 }
