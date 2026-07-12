@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Космические цитаты</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-elements/2.0.1/skeleton-elements.min.css"></link>
+    <!-- эксперементирую, использую библиотеку Skeleton Elements. Так как я не использую сборщики проектов, поэтому использую данный вариант через CDN -->
+    <link rel="stylesheet" href="./generatingRandomQuotes.css"></link>
+    <script src="./generatingRandomQuotes.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quote-card">
+        <div class="content">
+          <h1 id="text">«Нажми "Старт", чтобы отправиться в путешествие.»</h1>
+          <p id="author">— Бортовой компьютер</p>
+        </div>
+
+        <div class="controls">
+          <button id="new-quote" class="btn">Случайная</button>
+          <button id="start-quote" class="btn btn-start">▶ Старт</button>
+          <button id="stop-quote" class="btn btn-stop">■ Стоп</button>
+        </div>
+      </div>
+
+      <div class="planet planet-1"></div>
+      <div class="planet planet-2"></div>
+    </div>
+  </body>
+</html>

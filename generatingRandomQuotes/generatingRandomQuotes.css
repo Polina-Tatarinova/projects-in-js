@@ -1,0 +1,197 @@
+/* 1. Подключение футуристического шрифта */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* 2. Сброс стилей и общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Убираем скролл, если контент помещается */
+    
+    /* Космический градиентный фон */
+    background: linear-gradient(135deg, #050914 0%, #0F172A 50%, #1E293B 100%);
+    
+    /* Звездное небо на CSS */
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
+        radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.7), transparent);
+    background-size: 200px 200px;
+    background-color: #050914;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. Стиль стеклянной карточки (Glassmorphism) */
+.quote-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 
+                inset 0 0 20px rgba(69, 162, 158, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5), 0 0 40px rgba(69, 162, 158, 0.1);
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+#text {
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 400;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    min-height: 100px; /* Чтобы текст не прыгал при загрузке */
+}
+
+#author {
+    font-size: 1.2rem;
+    color: #7dd3fc; /* Голубой цвет */
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* 4. Общий стиль для кнопок */
+.btn {
+    background: transparent;
+    color: #38bdf8;
+    border: 2px solid #38bdf8;
+    padding: 14px 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin: 0 5px; /* Небольшой отступ между кнопками */
+}
+
+.btn:hover {
+    background: #38bdf8;
+    color: #0F172A;
+    box-shadow: 0 0 20px #38bdf8, 0 0 40px rgba(56, 189, 248, 0.4);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* 5. Специфичные стили для кнопок Старт и Стоп */
+.btn-start {
+    color: #4ade80;
+    border-color: #4ade80;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.1);
+}
+
+.btn-start:hover {
+    background: #4ade80;
+    color: #0F172A;
+    box-shadow: 0 0 20px #4ade80, 0 0 40px rgba(74, 222, 128, 0.4);
+}
+
+.btn-stop {
+    color: #f87171;
+    border-color: #f87171;
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.1);
+}
+
+.btn-stop:hover {
+    background: #f87171;
+    color: #0F172A;
+    box-shadow: 0 0 20px #f87171, 0 0 40px rgba(248, 113, 113, 0.4);
+}
+
+/* 6. Декоративные планеты на заднем плане */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0.2;
+}
+
+.planet-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle at 30% 30%, #38bdf8, #3b82f6, transparent);
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.planet-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    background: radial-gradient(circle at 30% 30%, #f472b6, #ec4899, transparent);
+    animation: float 20s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(40px, 30px); }
+}
+
+/* 7. Адаптив для мобильных устройств */
+@media (max-width: 600px) {
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .quote-card {
+        padding: 25px;
+        margin: 0 10px;
+    }
+    #text {
+        font-size: 1.5rem;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.8rem;
+        width: 100%; 
+        max-width: 250px;
+        margin: 0; /* На мобильных убираем боковые отступы */
+    }
+}

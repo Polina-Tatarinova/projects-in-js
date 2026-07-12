@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body { margin: 0; padding: 0; }
+            #map { 
+                width: 100%; 
+                height: 100vh; 
+                background: #f0f0f0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        
+        <!-- НОВЫЙ КЛЮЧ -->
+        <script src="https://api-maps.yandex.ru/v3/?apikey=312310bf-212d-4c11-a771-66bc0530897e&lang=ru_RU"></script>
+        
+        <script>
+            async function initMap() {
+                try {
+                    if (typeof ymaps3 === 'undefined') {
+                        console.error('ymaps3 не загружен!');
+                        return;
+                    }
+                    
+                    await ymaps3.ready;
+                    
+                    const { YMap, YMapDefaultSchemeLayer } = ymaps3;
+                    
+                    const map = new YMap(document.getElementById("map"), {
+                        location: {
+                            center: [37.588144, 55.733842],
+                            zoom: 10,
+                        },
+                    });
+                    
+                    map.addChild(new YMapDefaultSchemeLayer());
+                    console.log("Карта загружена!");
+                } catch (error) {
+                    console.error("Ошибка:", error);
+                }
+            }
+            
+            window.addEventListener('load', initMap);
+        </script>
+    </body>
+</html>
